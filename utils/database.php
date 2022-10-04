@@ -46,6 +46,7 @@ class Connexion
             $message = 'Erreur ! ' . $e->getMessage() . '<hr />';
             die($message);
         }
+        json_encode($result);
         return $result;
     }
 }
