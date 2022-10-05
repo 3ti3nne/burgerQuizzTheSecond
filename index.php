@@ -61,13 +61,15 @@ require('./config/app.php');
                 <div class="card-body">
                     <h5 class="card-title"><?= $question['question'] ?></h5>
                     <h6 class="card-subtitle mb-2 text-muted">La réponse : </h6>
+                    <p class="d-none"><?= $question['id'] ?></p>
                     <ol class="list-group">
                         <?php foreach ($answers as $answer) {
                             if ($answer['question_id'] === $question['id']) {
 
                         ?>
-                                <li class="list-group-item btn btn-dark"><?= "<strong>" . $letters[$i] . "</strong>" . " : " . $answer['answer'] ?></li>
-
+                                <li class="list-group-item btn btn-dark" id="<?= $answer['id'] ?>">
+                                    <?= "<strong>" . $letters[$i] . "</strong>" . " : " . $answer['answer'] ?>
+                                </li>
                         <?php
                                 $i++;
                             };
@@ -76,8 +78,6 @@ require('./config/app.php');
 
                         ?>
                     </ol>
-                    <!-- <a href="#" class="card-link">Card link</a>
-                <a href="#" class="card-link">Another link</a> -->
                 </div>
             </div>
         </div>

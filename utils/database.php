@@ -33,7 +33,12 @@ class Connexion
         } catch (PDOException $e) {
             $message = 'Erreur ! ' . $e->getMessage() . '<hr />';
             die($message);
-        }
+        } ?>
+
+        <script>
+            let jsonQuestions = <?= json_encode($result) ?>;
+        </script>
+    <?php
         return $result;
     }
 
@@ -45,8 +50,12 @@ class Connexion
         } catch (PDOException $e) {
             $message = 'Erreur ! ' . $e->getMessage() . '<hr />';
             die($message);
-        }
-        json_encode($result);
+        } ?>
+
+        <script>
+            let jsonAnswers = <?= json_encode($result) ?>;
+        </script>
+<?php
         return $result;
     }
 }
