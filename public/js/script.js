@@ -7,13 +7,13 @@ function flipCard() {
 card.addEventListener("click", flipCard);
  */
 
-let quizzCardAnswers = document.querySelectorAll("li");
-
 let compteurPoints = 0;
+let compteurPage = 0;
+let quizzCardAnswers = document.querySelectorAll("li");
+document.querySelector("#parent" + compteurPage).classList.remove("d-none");
 
 quizzCardAnswers.forEach((quizzCard) =>
   quizzCard.addEventListener("click", function () {
-    quizzCard.closest("#parent").classList.add("d-none");
     let answerID = this.id;
     jsonAnswers.forEach((jsonAnswer) => {
       if (jsonAnswer.id == answerID && jsonAnswer.answer_check == 1) {
@@ -21,6 +21,10 @@ quizzCardAnswers.forEach((quizzCard) =>
         console.log("kikounette");
       }
     });
+    document.querySelector("#parent" + compteurPage).classList.add("d-none");
+    compteurPage++;
+    document.querySelector("#parent" + compteurPage).classList.remove("d-none");
+
     console.log(compteurPoints);
   })
 );

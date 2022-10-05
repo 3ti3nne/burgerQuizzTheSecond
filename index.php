@@ -27,71 +27,24 @@ require('./config/app.php');
     <?php
     require('./views/header.php')
     ?>
-    <!-- <div class="maincontainer">   ca c'est pour les cards on verra plus tard
-        <div class="card" id="card">
-            <div class="front">
-                <h1>Front</h1>
-            </div>
-            <div class="back">
-                <h1>Back</h1>
-            </div>
-        </div>
-    </div> -->
+    <main>
+        <div class="card-body">
+            <div class="container m-4 h-100">
+                <div class="card m-auto" style="width: 18rem;">
+                    <img src="./public/imgs/burgerLogo.png" style="width:auto; object-fit:fill;">
+                    <li class="list-group-item btn btn-dark"><a href="./game.php"> Commencer le jeu !</a></li>
 
-    <?php
-    $conix = new Connexion($conf);
-    $questions = $conix->requeteQuestion();
-    /* echo "<pre>";
-    print_r($questions);
-    echo "</pre>"; */
-
-    $answers = $conix->requeteAnswer();
-    /* echo "<pre>";
-    print_r($answers);
-    echo "</pre>"; */
-
-    $letters = ["A", "B", "C", "D", "E"];
-    $i = 0;
-
-    foreach ($questions as $question) {
-
-    ?>
-        <div class="container m-4 h-100" id="parent">
-            <div class="card m-auto" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title"><?= $question['question'] ?></h5>
-                    <h6 class="card-subtitle mb-2 text-muted">La réponse : </h6>
-                    <p class="d-none"><?= $question['id'] ?></p>
-                    <ol class="list-group">
-                        <?php foreach ($answers as $answer) {
-                            if ($answer['question_id'] === $question['id']) {
-
-                        ?>
-                                <li class="list-group-item btn btn-dark" id="<?= $answer['id'] ?>">
-                                    <?= "<strong>" . $letters[$i] . "</strong>" . " : " . $answer['answer'] ?>
-                                </li>
-                        <?php
-                                $i++;
-                            };
-                        }
-                        $i = 0;
-
-                        ?>
-                    </ol>
                 </div>
             </div>
         </div>
-    <?php }
-    ?>
 
 
-
-
-    <?php
-    require('./views/footer.php')
-    ?>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-    <script src="./public/js/script.js"></script>
+        <!-- <footer style="position:fixed; bottom:0px; width:100%;">
+        <?php
+        require('./views/footer.php')
+        ?>
+    </footer> -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
 
 </html>
