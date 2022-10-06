@@ -1,37 +1,55 @@
-/* .maincontainer{
-    position: absolute;
-    width: 250px;
-    height: 320px;
-    background: none;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.card{
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: all 0.8S ease;
-}
-
-.back{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    background: purple;
-    color: white;
-    text-align: center;
-    transform: rotateY(180deg);
-}
-
-.flipCard{
-    transform: rotateY(180deg);
-} */
 
 body{
     font-family: 'Irish Grover', sans-serif !important;
-    background-image: url('../imgs/burgerQuizz_BG.jpg') !important;
 }
+.navbar{
+    z-index: 1;
+}
+#imgBG{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 0;
+    object-fit: cover;
+    top: 50px;
+}
+footer{
+    height: 80px;
+}
+
+/* Animation copied from CodePen. */
+
+#img:hover {
+                -webkit-animation-name: wiggle;
+                -ms-animation-name: wiggle;
+                -ms-animation-duration: 1000ms;
+                -webkit-animation-duration: 1000ms;
+                -webkit-animation-iteration-count: 1;
+                -ms-animation-iteration-count: 1;
+                -webkit-animation-timing-function: ease-in-out;
+                -ms-animation-timing-function: ease-in-out;
+              }
+              
+              @-webkit-keyframes wiggle {
+                0% {-webkit-transform: rotate(10deg);}
+                25% {-webkit-transform: rotate(-10deg);}
+                50% {-webkit-transform: rotate(20deg);}
+                75% {-webkit-transform: rotate(-5deg);}
+                100% {-webkit-transform: rotate(0deg);}
+              }
+              
+              @-ms-keyframes wiggle {
+                0% {-ms-transform: rotate(1deg);}
+                25% {-ms-transform: rotate(-1deg);}
+                50% {-ms-transform: rotate(1.5deg);}
+                75% {-ms-transform: rotate(-5deg);}
+                100% {-ms-transform: rotate(0deg);}
+              }
+              
+              @keyframes wiggle {
+                0% {transform: rotate(10deg);}
+                25% {transform: rotate(-10deg);}
+                50% {transform: rotate(20deg);}
+                75% {transform: rotate(-5deg);}
+                100% {transform: rotate(0deg);}
+              }              

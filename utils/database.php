@@ -12,7 +12,10 @@ use PDO, PDOException;
 class Connexion
 {
 
+
+    //      Connexion with database and requests methods with PDO.
     private PDO $conx;
+    private $result;
 
     public function __construct($conf)
     {
@@ -25,7 +28,7 @@ class Connexion
         }
     }
 
-    public function requeteQuestion($fetchMethod = 'fetchAll')
+    public function questionRequest($fetchMethod = 'fetchAll')
     {
         try {
             $sql = 'SELECT * FROM `question` ORDER BY RAND() LIMIT 6';
@@ -35,14 +38,23 @@ class Connexion
             die($message);
         } ?>
 
+
+        <!--             Sending PHP variables converted in JSON to JavaScript.
+ -->
+
         <script>
             let jsonQuestions = <?= json_encode($result) ?>;
         </script>
+
+
     <?php
         return $result;
     }
 
-    public function requeteAnswer($fetchMethod = 'fetchAll')
+
+
+
+    public function answerRequest($fetchMethod = 'fetchAll')
     {
         try {
             $sql = 'SELECT * FROM `answer`';

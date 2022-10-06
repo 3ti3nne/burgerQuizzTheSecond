@@ -24,55 +24,45 @@ require('./config/app.php');
 </head>
 
 <body>
-    <?php
-    require('./views/header.php')
-    ?>
+
+    <?php require('./views/header.php') ?>
+
+    <img id="imgBG" src="./public/imgs/burgerQuizz_BG.jpg" alt="">
     <main>
 
-        <!-- <div class="maincontainer">   ca c'est pour les cards on verra plus tard
-        <div class="card" id="card">
-            <div class="front">
-                <h1>Front</h1>
-            </div>
-            <div class="back">
-                <h1>Back</h1>
-            </div>
-        </div>
-    </div> -->
-
         <?php
+        //      Connexion and requests.
         $conix = new Connexion($conf);
-        $questions = $conix->requeteQuestion();
-        /* echo "<pre>";
-    print_r($questions);
-    echo "</pre>"; */
 
-        $answers = $conix->requeteAnswer();
-        /* echo "<pre>";
-    print_r($answers);
-    echo "</pre>"; */
+        $questions = $conix->questionRequest();
+        $answers = $conix->answerRequest();
 
+        //      Initializations for questions display and logic, $letters for letter display before each answer.
         $letters = ["A", "B", "C", "D", "E"];
         $indexQuestion = 0;
         $i = 0;
 
         ?>
-        <div class="container m-4 h-100">
+        <div class="container">
 
             <?php
             foreach ($questions as $question) {
             ?>
-                <div class="card m-auto d-none" id="parent<?= $indexQuestion ?>" style="width: 18rem;">
+
+                <!--            Display of questions and their associate answers from PHP SQL requests.        
+                                Id for display and hide.
+ -->
+                <div class="card mt-5 ml-5 text-bg-dark d-none" id="parent<?= $indexQuestion ?>" style="width: 20rem;">
                     <div class="card-body">
                         <h5 class="card-title"><?= $question['question'] ?></h5>
-                        <h6 class="card-subtitle mb-2 text-muted">La réponse : </h6>
+                        <h6 class="card-subtitle mb-2 text-muted" style="color: #ffc107 !important;">La réponse : </h6>
                         <p class="d-none"><?= $question['id'] ?></p>
                         <ol class="list-group">
                             <?php foreach ($answers as $answer) {
                                 if ($answer['question_id'] === $question['id']) {
 
                             ?>
-                                    <li class="list-group-item btn btn-dark" id="<?= $answer['id'] ?>">
+                                    <li class="list-group-item btn btn-dark m-1" id="<?= $answer['id'] ?>">
                                         <?= "<strong>" . $letters[$i] . "</strong>" . " : " . $answer['answer'] ?>
                                     </li>
                             <?php
@@ -85,10 +75,15 @@ require('./config/app.php');
                         </ol>
                     </div>
                 </div>
+
+
             <?php
+                //      Adding for display's identification in JS.
                 $indexQuestion++;
             }
             ?>
+
+
         </div>
     </main>
 
@@ -98,6 +93,7 @@ require('./config/app.php');
         require('./views/footer.php')
         ?>
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="./public/js/script.js"></script>
 </body>

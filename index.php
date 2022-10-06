@@ -1,13 +1,3 @@
-<?php
-
-use ETIROU\Cnx\Connexion;
-
-require('./utils/database.php');
-require('./config/app.php');
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,27 +14,36 @@ require('./config/app.php');
 </head>
 
 <body>
+
+
     <?php
     require('./views/header.php')
     ?>
+
+
     <main>
-        <div class="card-body">
-            <div class="container m-4 h-100">
-                <div class="card m-auto" style="width: 18rem;">
-                    <img src="./public/imgs/burgerLogo.png" style="width:auto; object-fit:fill;">
-                    <li class="list-group-item btn btn-dark"><a href="./game.php"> Commencer le jeu !</a></li>
+        <div class="container m-auto h-100 my-3">
+            <div class="card-body m-auto">
+                <div class="card m-auto p-3" id="indexBG">
+                    <a href=" ./game.php" style="text-decoration: none ; color: black;" class="m-auto">
+                        <img src="./public/imgs/burgerLogo.png" style="object-fit:cover ; border-radius : 10px;">
+                        <li class="list-group-item btn"> Commencer le jeu !
+                        </li>
+                    </a>
 
                 </div>
             </div>
         </div>
 
 
-        <!-- <footer style="position:fixed; bottom:0px; width:100%;">
-        <?php
-        require('./views/footer.php')
-        ?>
-    </footer> -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        <footer style="position:fixed; bottom:0px; width:100%;">
+            <?php require('./views/footer.php') ?>
+        </footer>
+
+
+
+        <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
+        </script>
 </body>
 
 </html>
