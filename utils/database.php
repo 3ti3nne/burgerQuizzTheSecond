@@ -3,7 +3,7 @@
 namespace ETIROU\Cnx;
 
 
-require('./config/app.php');
+require_once('./config/app.php');
 
 
 use PDO, PDOException;
@@ -15,7 +15,6 @@ class Connexion
 
     //      Connexion with database and requests methods with PDO.
     private PDO $conx;
-    private $result;
 
     public function __construct($conf)
     {
@@ -36,18 +35,7 @@ class Connexion
         } catch (PDOException $e) {
             $message = 'Erreur ! ' . $e->getMessage() . '<hr />';
             die($message);
-        } ?>
-
-
-        <!--             Sending PHP variables converted in JSON to JavaScript.
- -->
-
-        <script>
-            let jsonQuestions = <?= json_encode($result) ?>;
-        </script>
-
-
-    <?php
+        }
         return $result;
     }
 
@@ -57,17 +45,26 @@ class Connexion
     public function answerRequest($fetchMethod = 'fetchAll')
     {
         try {
-            $sql = 'SELECT * FROM `answer`';
+            $sql = 'SELECT `id`, `question_id`, `answer`  FROM `answer`';
             $result = $this->conx->query($sql, PDO::FETCH_ASSOC)->{$fetchMethod}();
         } catch (PDOException $e) {
             $message = 'Erreur ! ' . $e->getMessage() . '<hr />';
             die($message);
-        } ?>
+        }
+        return $result;
+    }
 
-        <script>
-            let jsonAnswers = <?= json_encode($result) ?>;
-        </script>
-<?php
+
+
+    public function answerCheckRequest($fetchMethod = 'fetchAll')
+    {
+        try {
+            $sql = 'SELECT `id`,`answer_check`  FROM `answer`';
+            $result = $this->conx->query($sql, PDO::FETCH_ASSOC)->{$fetchMethod}();
+        } catch (PDOException $e) {
+            $message = 'Erreur ! ' . $e->getMessage() . '<hr />';
+            die($message);
+        }
         return $result;
     }
 }

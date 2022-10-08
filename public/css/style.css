@@ -5,14 +5,7 @@ body{
 .navbar{
     z-index: 1;
 }
-#imgBG{
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    z-index: 0;
-    object-fit: cover;
-    top: 50px;
-}
+
 footer{
     height: 80px;
 }

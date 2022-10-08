@@ -1,9 +1,9 @@
 <?php
 
-use ETIROU\Cnx\Connexion;
 
-require('./utils/database.php');
-require('./config/app.php');
+require_once('./config/app.php');
+require_once('./utils/database.php');
+require_once('./controller/controller.php');
 
 
 ?>
@@ -27,15 +27,9 @@ require('./config/app.php');
 
     <?php require('./views/header.php') ?>
 
-    <img id="imgBG" src="./public/imgs/burgerQuizz_BG.jpg" alt="">
     <main>
 
         <?php
-        //      Connexion and requests.
-        $conix = new Connexion($conf);
-
-        $questions = $conix->questionRequest();
-        $answers = $conix->answerRequest();
 
         //      Initializations for questions display and logic, $letters for letter display before each answer.
         $letters = ["A", "B", "C", "D", "E"];
@@ -45,45 +39,58 @@ require('./config/app.php');
         ?>
         <div class="container">
 
-            <?php
-            foreach ($questions as $question) {
-            ?>
+            <form action="./score.php" method="post">
 
-                <!--            Display of questions and their associate answers from PHP SQL requests.        
+                <?php
+                foreach ($questions as $question) {
+                ?>
+
+                    <!--            Display of questions and their associate answers from PHP SQL requests.        
                                 Id for display and hide.
  -->
-                <div class="card mt-5 ml-5 text-bg-dark d-none" id="parent<?= $indexQuestion ?>" style="width: 20rem;">
-                    <div class="card-body">
-                        <h5 class="card-title"><?= $question['question'] ?></h5>
-                        <h6 class="card-subtitle mb-2 text-muted" style="color: #ffc107 !important;">La réponse : </h6>
-                        <p class="d-none"><?= $question['id'] ?></p>
-                        <ol class="list-group">
-                            <?php foreach ($answers as $answer) {
-                                if ($answer['question_id'] === $question['id']) {
+                    <div class="card mt-5 m-auto text-bg-dark d-none w-50" id="parent<?= $indexQuestion ?>" style="width: 20rem;">
+                        <div class="card-body">
+                            <h5 class="card-title"><?= $question['question'] ?></h5>
+                            <h6 class="card-subtitle mb-2 text-muted" style="color: #ffc107 !important;">La réponse : </h6>
+                            <p class="d-none"><?= $question['id'] ?></p>
+                            <ol class="list-group">
+                                <?php foreach ($answers as $answer) {
+                                    if ($answer['question_id'] === $question['id']) {
 
-                            ?>
-                                    <li class="list-group-item btn btn-dark m-1" id="<?= $answer['id'] ?>">
-                                        <?= "<strong>" . $letters[$i] . "</strong>" . " : " . $answer['answer'] ?>
-                                    </li>
-                            <?php
-                                    $i++;
-                                };
-                            }
-                            $i = 0;
+                                ?>
+                                        <div class="form-group">
+                                            <label class="list-group-item btn btn-dark m-1" for="btn<?= $answer['id'] ?>"><?= "<strong>" . $letters[$i] . "</strong>" . " : " . $answer['answer'] ?></label>
+                                            <input class="d-none" type="radio" id="btn<?= $answer['id'] ?>" value="<?= $answer['id'] ?>" name="<?= $answer['id'] ?>">
+                                        </div>
+                                <?php
+                                        $i++;
+                                    };
+                                }
+                                $i = 0;
 
-                            ?>
-                        </ol>
+                                ?>
+                            </ol>
+                        </div>
                     </div>
+
+
+                <?php
+                    //      Adding for display's identification in JS.
+                    $indexQuestion++;
+                }
+                ?>
+
+                <div class="alert alert-warning alert-dismissible d-none m-auto mt-5" id="parent<?= $indexQuestion ?>" role="alert">
+                    <strong>Enregistre ton pseudo !</strong> :
+                    <input type="text" name="pseudo">
+                    <button type="submit" class="btn btn-dark" data-dismiss="alert">Envoyer
+                    </button>
                 </div>
+                <!-- <div class="card mt-5 ml-5 text-bg-dark d-none" id="parent" style="width: 20rem;">
+                    <div class="card-body"><button class="btn btn-dark" type="submit">Envoyer</button></div>
+                </div> -->
 
-
-            <?php
-                //      Adding for display's identification in JS.
-                $indexQuestion++;
-            }
-            ?>
-
-
+            </form>
         </div>
     </main>
 
