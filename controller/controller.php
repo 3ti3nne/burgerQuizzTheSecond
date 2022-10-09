@@ -13,11 +13,16 @@ $questions = $conix->questionRequest();
 $answers = $conix->answerRequest();
 
 
+$userScoreBoard = [];
+
+
 
 if (isset($_POST) && !empty($_POST)) {
 
     session_start();
     $_SESSION['user']['pseudo'] = $_POST['pseudo'];
+    $pseudo = $_SESSION['user']['pseudo'];
+
 
     $userAnswers = $_POST;
 
@@ -32,4 +37,6 @@ if (isset($_POST) && !empty($_POST)) {
         }
         $_SESSION['user']['score'] = $countPoints;
     }
+
+    $score = $_SESSION['user']['score'];
 }

@@ -24,19 +24,21 @@ require_once('./controller/controller.php')
     <?php require('./views/header.php') ?>
 
 
-    <div class="card bg-dark text-white w-50 m-auto">
+    <div class="card bg-dark text-white w-50 h-100 m-auto">
         <div class="card-body">
-            <h1 class="card-title">BRAVO</h1>
-            <p class="card-text">Tu as réussi à faire un magnifique score de <?= $countPoints ?> de bonnes réponses !!!</p>
-            <a href="./game.php" class="btn btn-warning">Rejouer ?</a>
+            <h1 class="card-title">BRAVO <?= $_SESSION['user']['pseudo'] ?></h1>
+            <p class="card-text">Tu as réussi à scorer un magnifique <?= (int)($countPoints / 6 * 100) ?> % de bonnes réponses !!!</p>
+            <?php
+            if ($countPoints == 0) { ?>
+                <p class="alert alert-danger"><strong>C'est quand même pas terrible hein.</strong></p>
+
+            <?php
+            }
+            ?>
+            <img src="./public/imgs/chabatBG.jpg" alt="chabat" style="height: 300px ;">
+            <a href="./game.php" class="btn btn-outline-warning p-3 m-5">Rejouer ?</a>
         </div>
     </div>
-
-    <?php
-    foreach ($_SESSION['user'] as $user) {
-        print_r($user);
-    }
-    ?>
 
 
 

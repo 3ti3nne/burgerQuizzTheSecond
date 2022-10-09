@@ -5,7 +5,6 @@ require_once('./config/app.php');
 require_once('./utils/database.php');
 require_once('./controller/controller.php');
 
-
 ?>
 
 <!DOCTYPE html>
