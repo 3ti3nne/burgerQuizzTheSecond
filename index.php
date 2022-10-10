@@ -26,7 +26,7 @@
             <div class="card-body m-auto">
                 <div class="card m-auto p-3" id="indexBG">
                     <a href=" ./game.php" style="text-decoration: none ; color: black;" class="m-auto">
-                        <img src="./public/imgs/burgerLogo.png" style="object-fit:cover ; border-radius : 10px;">
+                        <img id="burgerImg" src="./public/imgs/burgerLogo.png" style="object-fit:cover ; border-radius : 10px;">
                         <li class="list-group-item btn"> Commencer le jeu !
                         </li>
                     </a>

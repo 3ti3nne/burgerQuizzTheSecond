@@ -8,7 +8,7 @@ let quizzCardAnswers = document.querySelectorAll("label");
 
 document.querySelector("#parent" + compteurPage).classList.remove("d-none");
 
-//    Add listener on responses('li') and check if they're right.
+//    Add listener on responses('label') and check if they're right.
 
 quizzCardAnswers.forEach((quizzCardAnswer) =>
   quizzCardAnswer.addEventListener("click", function () {

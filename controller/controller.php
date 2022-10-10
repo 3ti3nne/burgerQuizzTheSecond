@@ -21,7 +21,6 @@ if (isset($_POST) && !empty($_POST)) {
 
     session_start();
     $_SESSION['user']['pseudo'] = $_POST['pseudo'];
-    $pseudo = $_SESSION['user']['pseudo'];
 
 
     $userAnswers = $_POST;

@@ -47,8 +47,8 @@ require_once('./controller/controller.php');
                     <!--            Display of questions and their associate answers from PHP SQL requests.        
                                 Id for display and hide.
  -->
-                    <div class="card mt-5 m-auto text-bg-dark d-none w-50" id="parent<?= $indexQuestion ?>" style="width: 20rem;">
-                        <div class="card-body">
+                    <div class="card mt-5 m-auto text-bg-dark d-none w-75" id="parent<?= $indexQuestion ?>" style="width: 20rem;">
+                        <div id="gameCard" class="card-body">
                             <h5 class="card-title"><?= $question['question'] ?></h5>
                             <h6 class="card-subtitle mb-2 text-muted" style="color: #ffc107 !important;">La réponse : </h6>
                             <p class="d-none"><?= $question['id'] ?></p>
@@ -85,9 +85,7 @@ require_once('./controller/controller.php');
                     <button type="submit" class="btn btn-dark" data-dismiss="alert">Envoyer
                     </button>
                 </div>
-                <!-- <div class="card mt-5 ml-5 text-bg-dark d-none" id="parent" style="width: 20rem;">
-                    <div class="card-body"><button class="btn btn-dark" type="submit">Envoyer</button></div>
-                </div> -->
+
 
             </form>
         </div>
