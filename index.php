@@ -36,7 +36,7 @@
         </div>
 
 
-        <footer style=" bottom:0px; width:100%;">
+        <footer style=" height:120px;bottom:-10px; width:100%;">
             <?php require('./views/footer.php') ?>
         </footer>
 

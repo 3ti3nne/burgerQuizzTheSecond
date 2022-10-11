@@ -92,7 +92,7 @@ require_once('./controller/controller.php');
     </main>
 
 
-    <footer style="position:fixed; bottom:0px; width:100%;">
+    <footer style="position:fixed; bottom:30px; width:100%;">
         <?php
         require('./views/footer.php')
         ?>

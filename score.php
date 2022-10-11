@@ -29,12 +29,19 @@ require_once('./controller/controller.php')
         <div class="column-2 px-2 mb-r">
             <div class="card bg-dark text-white text-center p-3 " id="scoreCard" style="margin:50px;">
                 <div class="card-body m-auto">
-                    <h1 class="card-title">BRAVO <?= $_SESSION['user']['pseudo'] ?></h1>
+                    <h1 class="card-title">BRAVO <?php if (isset($_SESSION['user']['pseudo'])) {
+                                                        echo $_SESSION['user']['pseudo'];
+                                                    } else {
+                                                        header('Location: /index.php');
+                                                    } ?></h1>
                     <p class="card-text">Tu as réussi à scorer un magnifique <?= (int)($countPoints / 6 * 100) ?> % de bonnes réponses !!!</p>
                     <?php
                     if ($countPoints == 0) { ?>
                         <p class="alert alert-danger"><strong>C'est quand même pas terrible hein.</strong></p>
 
+                    <?php
+                    } elseif ($countPoints == 6) { ?>
+                        <p class="alert alert-success"><strong>FANTASTIQUE !! C'est un sans fautes!</strong></p>
                     <?php
                     }
                     ?>
@@ -47,7 +54,7 @@ require_once('./controller/controller.php')
 
 
 
-    <footer>
+    <footer style="bottom:0px; width:100%; position:sticky;">
         <?php
         require('./views/footer.php')
         ?>
