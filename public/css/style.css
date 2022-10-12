@@ -4,16 +4,20 @@
   margin: 0 !important;
 }
 
-@media (max-width: 730px) {
 
+@media only screen and (max-height: 400px){
+  #footerGame{
+    position: relative !important;
+  }
+}
+
+@media only screen and (max-width: 730px) {
   #chabat{
     max-height: 250px !important;
   }
 }
 
-
-
-@media (max-width: 500px) {
+@media only screen and (max-width: 500px) {
   #homeBtn {
       display: none !important;
   }

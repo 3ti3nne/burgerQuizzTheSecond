@@ -97,9 +97,8 @@ require_once('./controller/controller.php');
     </main>
 
 
-    <footer style="width:100%; bottom:0; position:absolute; height:2.5rem;">
+    <footer id="footerGame" style="width:100%; bottom:0; position:absolute; height:2.5rem;">
         <?php
-
         require('./views/footer.php')
         ?>
     </footer>
