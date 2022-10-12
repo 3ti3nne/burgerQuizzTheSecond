@@ -27,6 +27,8 @@ if (isset($_POST) && !empty($_POST)) {
 
     $countPoints = 0;
 
+    // Vérification des réponses
+
     foreach ($answersCheck as $answer) {
         foreach ($userAnswers as $userAnswer) {
             if ($answer['id'] == $userAnswer && $answer['answer_check'] === 1) {

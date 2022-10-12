@@ -22,7 +22,7 @@
 
 
     <main>
-        <div class="container m-auto my-3">
+        <div class="container m-auto my-5">
             <div class="card-body m-auto">
                 <div class="card m-auto p-3" id="indexBG">
                     <a href=" ./game.php" style="text-decoration: none ; color: black;" class="m-auto">
@@ -36,7 +36,7 @@
         </div>
 
 
-        <footer style=" height:120px;bottom:-10px; width:100%;">
+        <footer style="width:100%; bottom:0; position:absolute; height:2.5rem;">
             <?php require('./views/footer.php') ?>
         </footer>
 

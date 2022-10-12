@@ -26,8 +26,8 @@ require_once('./controller/controller.php')
 
     <div class="row">
 
-        <div class="column-2 px-2 mb-r">
-            <div class="card bg-dark text-white text-center p-3 " id="scoreCard" style="margin:50px;">
+        <div class="column-2 mb-r">
+            <div class="card bg-dark bg-gradient text-white text-center p-1" id="scoreCard" style="margin:50px;">
                 <div class="card-body m-auto">
                     <h1 class="card-title">BRAVO <?php if (isset($_SESSION['user']['pseudo'])) {
                                                         echo $_SESSION['user']['pseudo'];
@@ -47,14 +47,14 @@ require_once('./controller/controller.php')
                     ?>
                     <img src="./public/imgs/chabatBG.jpg" class="mx-2" id="chabat" alt="chabat" style="height: 500px ; border-radius: 10px;">
                 </div>
-                <a href="./game.php" class="btn btn-outline-warning p-3 m-auto" id="reloadBtn">Rejouer ?</a>
+                <a href="./game.php" class="btn btn-outline-warning p-3 my-3 m-auto" id="reloadBtn">Rejouer ?</a>
             </div>
         </div>
     </div>
 
 
 
-    <footer style="bottom:0px; width:100%; position:sticky;">
+    <footer style="width:100%; bottom:0; position:relative; height:2.5rem;">
         <?php
         require('./views/footer.php')
         ?>

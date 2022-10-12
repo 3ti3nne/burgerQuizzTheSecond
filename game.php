@@ -30,7 +30,7 @@ require_once('./controller/controller.php');
 
         <?php
 
-        //      Initializations for questions display and logic, $letters for letter display before each answer.
+        //      Initializations for questions display and logic, $letters and $i for letter display before each answer.
         $letters = ["A", "B", "C", "D", "E"];
         $indexQuestion = 0;
         $i = 0;
@@ -47,7 +47,7 @@ require_once('./controller/controller.php');
                     <!--            Display of questions and their associate answers from PHP SQL requests.        
                                 Id for display and hide.
  -->
-                    <div class="card mt-5 m-auto text-bg-dark d-none w-75" id="parent<?= $indexQuestion ?>" style="width: 20rem;">
+                    <div class="card mt-5 mb-5 m-auto text-bg-dark bg-gradient d-none w-75" id="parent<?= $indexQuestion ?>" style="width: 20rem;">
                         <div id="gameCard" class="card-body">
                             <h5 class="card-title"><?= $question['question'] ?></h5>
                             <h6 class="card-subtitle mb-2 text-muted" style="color: #ffc107 !important;">La réponse : </h6>
@@ -79,11 +79,16 @@ require_once('./controller/controller.php');
                 }
                 ?>
 
-                <div class="alert alert-warning alert-dismissible d-none m-auto mt-5" id="parent<?= $indexQuestion ?>" role="alert">
-                    <strong>Enregistre ton pseudo !</strong> :
-                    <input type="text" name="pseudo">
-                    <button type="submit" class="btn btn-dark" data-dismiss="alert">Envoyer
-                    </button>
+
+                <!--        Last insertion after the final question, asking for user's name.
+ -->
+                <div class="alert alert-warning alert-dismissible d-none m-auto text-center mt-5 " id="parent<?= $indexQuestion ?>" role="alert">
+                    <strong>Enregistre ton pseudo ! : </strong>
+                    <div class="form-group p-4">
+                        <input type="text" name="pseudo" class="row m-auto">
+                        <button type="submit" class="btn btn-dark row mt-4 p-1" data-dismiss="alert">Envoyer
+                        </button>
+                    </div>
                 </div>
 
 
@@ -92,8 +97,9 @@ require_once('./controller/controller.php');
     </main>
 
 
-    <footer style="position:fixed; bottom:30px; width:100%;">
+    <footer style="width:100%; bottom:0; position:absolute; height:2.5rem;">
         <?php
+
         require('./views/footer.php')
         ?>
     </footer>
