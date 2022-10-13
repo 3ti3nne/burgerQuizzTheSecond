@@ -6,7 +6,7 @@ $conf = [
         /* Entrez ici vos identifiants pour se connecter à la base de données */
         'host'      => 'localhost',
         'database'  => 'burgerquizzetienne',
-        'user'      => 'root',
-        'password' => 'wallace'
+        'user'      => 'quizzUser',
+        'password' => 'user'
     ]
 ];
