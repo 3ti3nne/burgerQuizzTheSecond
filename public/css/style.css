@@ -1,89 +1,113 @@
-
-.row{
+.row {
   padding: 0 !important;
   margin: 0 !important;
 }
 
-
-@media only screen and (max-height: 400px){
-  #footerGame{
+@media only screen and (max-height: 400px) {
+  #footerGame {
     position: relative !important;
   }
 }
 
 @media only screen and (max-width: 730px) {
-  #chabat{
+  #chabat {
     max-height: 250px !important;
   }
 }
 
 @media only screen and (max-width: 500px) {
   #homeBtn {
-      display: none !important;
+    display: none !important;
   }
-  #reloadBtn{
+  #reloadBtn {
     margin-left: 34% !important;
     margin-top: 30px;
   }
-  #chabat{
+  #chabat {
     max-height: 250px;
   }
-  #burgerImg{
+  #burgerImg {
     width: 300px !important;
   }
-  #scoreCard{
+  #scoreCard {
     margin: 30px 0px 30px 0px !important;
   }
 }
 
-
-
-
-body{
-    font-family: 'Irish Grover', sans-serif !important;
-
+body {
+  font-family: "Irish Grover", sans-serif !important;
 }
-.navbar{
-    z-index: 1;
+.navbar {
+  z-index: 1;
 }
 
-footer{
-    height: 80px;
+footer {
+  height: 80px;
 }
 
 /* Animation copied from CodePen. */
 
 #img:hover {
-                -webkit-animation-name: wiggle;
-                -ms-animation-name: wiggle;
-                -ms-animation-duration: 1000ms;
-                -webkit-animation-duration: 1000ms;
-                -webkit-animation-iteration-count: 1;
-                -ms-animation-iteration-count: 1;
-                -webkit-animation-timing-function: ease-in-out;
-                -ms-animation-timing-function: ease-in-out;
-              }
-              
-              @-webkit-keyframes wiggle {
-                0% {-webkit-transform: rotate(10deg);}
-                25% {-webkit-transform: rotate(-10deg);}
-                50% {-webkit-transform: rotate(20deg);}
-                75% {-webkit-transform: rotate(-5deg);}
-                100% {-webkit-transform: rotate(0deg);}
-              }
-              
-              @-ms-keyframes wiggle {
-                0% {-ms-transform: rotate(1deg);}
-                25% {-ms-transform: rotate(-1deg);}
-                50% {-ms-transform: rotate(1.5deg);}
-                75% {-ms-transform: rotate(-5deg);}
-                100% {-ms-transform: rotate(0deg);}
-              }
-              
-              @keyframes wiggle {
-                0% {transform: rotate(10deg);}
-                25% {transform: rotate(-10deg);}
-                50% {transform: rotate(20deg);}
-                75% {transform: rotate(-5deg);}
-                100% {transform: rotate(0deg);}
-              }              
+  -webkit-animation-name: wiggle;
+  -ms-animation-name: wiggle;
+  -ms-animation-duration: 1000ms;
+  -webkit-animation-duration: 1000ms;
+  -webkit-animation-iteration-count: 1;
+  -ms-animation-iteration-count: 1;
+  -webkit-animation-timing-function: ease-in-out;
+  -ms-animation-timing-function: ease-in-out;
+}
+
+@-webkit-keyframes wiggle {
+  0% {
+    -webkit-transform: rotate(10deg);
+  }
+  25% {
+    -webkit-transform: rotate(-10deg);
+  }
+  50% {
+    -webkit-transform: rotate(20deg);
+  }
+  75% {
+    -webkit-transform: rotate(-5deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+  }
+}
+
+@-ms-keyframes wiggle {
+  0% {
+    -ms-transform: rotate(1deg);
+  }
+  25% {
+    -ms-transform: rotate(-1deg);
+  }
+  50% {
+    -ms-transform: rotate(1.5deg);
+  }
+  75% {
+    -ms-transform: rotate(-5deg);
+  }
+  100% {
+    -ms-transform: rotate(0deg);
+  }
+}
+
+@keyframes wiggle {
+  0% {
+    transform: rotate(10deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(20deg);
+  }
+  75% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

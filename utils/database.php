@@ -27,6 +27,8 @@ class Connexion
         }
     }
 
+
+
     public function questionRequest($fetchMethod = 'fetchAll')
     {
         try {
@@ -38,7 +40,6 @@ class Connexion
         }
         return $result;
     }
-
 
 
 

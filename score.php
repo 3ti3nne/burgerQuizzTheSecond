@@ -20,7 +20,8 @@ require_once('./controller/controller.php')
 
 <body>
 
-
+    <!-- RAJOUTER UNE MODALE AVEC LES SCORES ENREGISTRES
+ -->
     <?php require('./views/header.php') ?>
 
 
