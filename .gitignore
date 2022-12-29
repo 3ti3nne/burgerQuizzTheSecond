@@ -1,5 +1,5 @@
 {\rtf1}
 /cert/*
 *.pem
-/config/
-/burgerQuizzUtilities/
+/config/*
+/burgerQuizzUtilities/*
