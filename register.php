@@ -29,27 +29,25 @@ require_once('./controller/controller.php');
     <div class="containerRegister">
         <div class="card my-5 p-5 m-auto bg-gradient w-75 text-center" style="width: 20rem;">
             <form action="./controller/controller.php" method="POST">
-                <div class="input-group mb-3 mt-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="pseudo">Choisir un pseudo</span>
-                    </div>
-                    <input type="text" class="form-control" aria-label="Default" aria-describedby="pseudo">
+                <div class="form-group">
+                    <label for="pseudo">Pseudo</label>
+                    <input type="text" class="form-control" id="pseudo" aria-describedby="pseudoHelp" placeholder="Choisir un pseudo" name="pseudo">
+                    <small id="pseudoHelp" class="form-text text-muted">Trouvez un pseudo original!</small>
                 </div>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="password">Choisir un mot de passe</span>
-                    </div>
-                    <input type="text" class="form-control" aria-label="Default" aria-describedby="password">
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" class="form-control" id="password" placeholder="Mot de passe" name="password">
                 </div>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="passwordConfirm">Confirmer le mot de passe</span>
-                    </div>
-                    <input type="text" class="form-control" aria-label="Default" aria-describedby="passwordConfirm">
+                <div class="form-group">
+                    <label for="passwordCheck">Confirmer le mot de passe</label>
+                    <input type="password" class="form-control" id="passwordCheck" placeholder="Confirmer votre mot de passe">
                 </div>
-
-                <button type="submit" class="btn btn-warning">S'inscrire !</button>
+                <button type="submit" class="btn btn-warning mt-5">S'inscrire</button>
             </form>
+
+            <?php
+            print_r($_POST);
+            ?>
 
         </div>
     </div>

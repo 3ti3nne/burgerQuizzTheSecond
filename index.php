@@ -57,16 +57,16 @@
 
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="password">Password</span>
+                                    <span class="input-group-text" id="password">Mot de passe</span>
                                 </div>
                                 <input type="text" class="form-control" aria-label="Default" aria-describedby="pseudo">
                             </div>
+
                         </form>
                     </div>
-                    <div class="modal-footer">
-                        <a type="button" class="btn btn-warning" href="register.php">Inscription</a>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Connexion</button>
+                    <div class="modal-footer justify-content-between">
+                        <a type="button" class="btn btn-outline-warning flex-start" href="register.php">Inscription</a>
+                        <button type="button" class="btn btn-outline-primary">Connexion</button>
                     </div>
                 </div>
             </div>

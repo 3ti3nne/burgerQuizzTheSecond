@@ -25,6 +25,10 @@ require_once('./controller/controller.php')
     <?php require('./views/header.php') ?>
 
 
+    <?=
+    print_r($_POST);
+    ?>
+
     <div class="row">
 
         <div class="column-2 mb-r">
@@ -33,7 +37,8 @@ require_once('./controller/controller.php')
                     <h1 class="card-title">BRAVO <?php if (isset($_SESSION['user']['pseudo'])) {
                                                         echo $_SESSION['user']['pseudo'];
                                                     } else {
-                                                        header('Location: /index.php');
+                                                        /*                                                         header('Location: /index.php');
+ */
                                                     } ?></h1>
                     <p class="card-text">Tu as réussi à scorer un magnifique <?= (int)($countPoints / 6 * 100) ?> % de bonnes réponses !!!</p>
                     <?php

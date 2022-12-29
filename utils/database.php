@@ -3,7 +3,7 @@
 namespace ETIROU\Cnx;
 
 
-require_once('./config/app.php');
+require_once('./userAndDatabaseInformationsig/app.php');
 
 
 use PDO, PDOException;
@@ -16,11 +16,11 @@ class Connexion
     //      Connexion with database and requests methods with PDO.
     private PDO $conx;
 
-    public function __construct($conf)
+    public function __construct($userAndDatabaseInformations)
     {
 
         try {
-            $this->conx = new PDO('mysql:host=' . $conf['db']['host'] . ';dbname=' . $conf['db']['database'], $conf['db']['user'], $conf['db']['password'], [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8']);
+            $this->conx = new PDO('mysql:host=' . $userAndDatabaseInformations['db']['host'] . ';dbname=' . $userAndDatabaseInformations['db']['database'], $userAndDatabaseInformations['db']['user'], $userAndDatabaseInformations['db']['password'], [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8']);
         } catch (PDOException $e) {
             $message = 'Erreur ! ' . $e->getMessage() . '<hr />';
             die($message);
@@ -28,6 +28,17 @@ class Connexion
     }
 
 
+    public function registerUser($name, $password)
+    {
+        $data = [
+            'name' => $name,
+            'password' => $password,
+        ];
+
+        $request = "INSERT INTO users(name, password)VALUES ( :name, :password)";
+        $statement = $this->conx->prepare($request);
+        $statement->execute($data);
+    }
 
     public function questionRequest($fetchMethod = 'fetchAll')
     {

@@ -26,6 +26,8 @@ require_once('./controller/controller.php');
 
     <?php require('./views/header.php') ?>
 
+
+
     <main>
 
         <?php
@@ -78,17 +80,15 @@ require_once('./controller/controller.php');
                     $indexQuestion++;
                 }
                 ?>
-
-
                 <!--        Last insertion after the final question, asking for user's name.
  -->
                 <div class="alert alert-warning alert-dismissible d-none m-auto text-center mt-5 " id="parent<?= $indexQuestion ?>" role="alert">
-                    <strong>Enregistre ton pseudo ! : </strong>
+                    <strong>Un commentaire ?</strong>
                     <div class="form-group p-4">
-                        <input type="text" name="pseudo" class="row m-auto">
-                        <button type="submit" class="btn btn-dark row mt-4 p-1" data-dismiss="alert">Envoyer
-                        </button>
+                        <textarea id="story" name="story" rows="5" cols="33"></textarea>
                     </div>
+                    <button type="submit" class="btn btn-dark row mt-4 p-1" data-dismiss="alert">Envoyer
+                    </button>
                 </div>
 
 

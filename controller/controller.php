@@ -7,19 +7,23 @@ require_once('./utils/database.php');
 ///////////////////////////////////////////////////////////////////////////////.
 
 
-$conix = new Connexion($conf);
+$conix = new Connexion($userAndDatabaseInformations);
 $answersCheck = $conix->answerCheckRequest();
 $questions = $conix->questionRequest();
 $answers = $conix->answerRequest();
 
+
+if (isset($_POST['pseudo']) && !empty($_POST['password'])) {
+
+    $pseudo = strtolower($_POST['pseudo']);
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+}
 
 
 
 if (isset($_POST) && !empty($_POST)) {
 
     session_start();
-
-    $_SESSION['user']['pseudo'] = $_POST['pseudo'];
 
 
     $userAnswers = $_POST;
