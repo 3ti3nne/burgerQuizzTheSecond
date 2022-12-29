@@ -3,8 +3,8 @@
         <a class="navbar-brand" href="/index.php">
             <img id="img" src="../public/imgs/Burger_Quiz_logo_ecrit.png" width="300" height="100" class="d-inline-block align-text-top">
         </a>
-        <?php if (isset($_SESSION['user']['pseudo']) && $_SESSION['user']['pseudo'] !== "") {
-        ?> <a class="btn btn-outline-warning d-flex p-3 hidden-xs" id="scoreBtn" href="score.php">
+        <?php if (isset($_SESSION['pseudo']) && !empty($_SESSION['pseudo'])) {
+        ?> <a class="btn btn-outline-warning d-flex p-3 hidden-xs" id="scoreBtn" href="scoreboard.php">
                 <h2>Score</h2>
             </a>
 

@@ -1,6 +1,7 @@
 <?php
+session_start();
+require_once('./controller/controller.php');
 
-require_once('./controller/controller.php')
 
 ?>
 <!DOCTYPE html>
@@ -25,20 +26,16 @@ require_once('./controller/controller.php')
     <?php require('./views/header.php') ?>
 
 
-    <?=
-    print_r($_POST);
-    ?>
 
     <div class="row">
 
         <div class="column-2 mb-r">
             <div class="card bg-dark bg-gradient text-white text-center p-1" id="scoreCard" style="margin:50px;">
                 <div class="card-body m-auto">
-                    <h1 class="card-title">BRAVO <?php if (isset($_SESSION['user']['pseudo'])) {
-                                                        echo $_SESSION['user']['pseudo'];
+                    <h1 class="card-title">BRAVO <?php if (!empty($_SESSION['pseudo'])) {
+                                                        echo $_SESSION['pseudo'];
                                                     } else {
-                                                        /*                                                         header('Location: /index.php');
- */
+                                                        header('Location: /index.php');
                                                     } ?></h1>
                     <p class="card-text">Tu as réussi à scorer un magnifique <?= (int)($countPoints / 6 * 100) ?> % de bonnes réponses !!!</p>
                     <?php

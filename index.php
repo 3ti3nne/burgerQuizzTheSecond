@@ -1,3 +1,8 @@
+<?php
+require_once(__DIR__ . '/controller/controller.php');
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,17 +27,20 @@
 
 
     <main>
-        <div class="container m-auto my-5">
-            <div class="card-body m-auto">
-                <div class="card m-auto p-3" id="indexBG">
-                    <a type="button" style="text-decoration: none ; color: black; cursor:pointer;" class="m-auto" data-toggle="modal" data-target="#modal">
-                        <img id="burgerImg" src="./public/imgs/burgerLogo.png" style="object-fit:cover ; border-radius : 10px;">
-                        <li class="list-group-item btn"> Commencer le jeu !
-                        </li>
-                    </a>
 
-                </div>
+        <div class="card-body m-auto">
+            <div class="card m-auto p-3" id="indexBG">
+                <a type="button" style="text-decoration: none ; color: black; cursor:pointer;" class="m-auto" <?php if (!empty($_SESSION['pseudo'])) {
+                                                                                                                ?> href="game.php" <?php
+                                                                                                                                } else {
+                                                                                                                                    ?> data-toggle="modal" data-target="#modal" <?php } ?>>
+                    <img id="burgerImg" src="./public/imgs/burgerLogo.png" style="object-fit:cover ; border-radius : 10px;">
+                    <li class="list-group-item btn"> Commencer le jeu !
+                    </li>
+                </a>
+
             </div>
+        </div>
         </div>
 
         <!-- Modal -->
@@ -46,28 +54,29 @@
                         </button>
                     </div>
                     <div class="modal-body">
+
                         <form action="./controller/controller.php" method="POST">
 
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="pseudo">Pseudo</span>
                                 </div>
-                                <input type="text" class="form-control" aria-label="Default" aria-describedby="pseudo">
+                                <input type="text" class="form-control" aria-label="Default" aria-describedby="pseudo" name="loginPseudo">
                             </div>
 
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="password">Mot de passe</span>
                                 </div>
-                                <input type="text" class="form-control" aria-label="Default" aria-describedby="pseudo">
+                                <input type="password" class="form-control" aria-label="Default" aria-describedby="password" name="loginPassword">
                             </div>
 
-                        </form>
                     </div>
                     <div class="modal-footer justify-content-between">
                         <a type="button" class="btn btn-outline-warning flex-start" href="register.php">Inscription</a>
-                        <button type="button" class="btn btn-outline-primary">Connexion</button>
+                        <button type="submit" class="btn btn-outline-primary">Connexion</button>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>

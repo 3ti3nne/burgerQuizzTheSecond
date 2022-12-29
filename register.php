@@ -1,9 +1,9 @@
 <?php
 
 
-require_once('./config/app.php');
-require_once('./utils/database.php');
-require_once('./controller/controller.php');
+require_once(__DIR__ . '/config/app.php');
+require_once(__DIR__ . '/utils/database.php');
+require_once(__DIR__ . '/controller/controller.php');
 
 ?>
 
@@ -24,7 +24,8 @@ require_once('./controller/controller.php');
 
 <body>
 
-    <?php require('./views/header.php') ?>
+    <?php require_once(__DIR__ . '/views/header.php') ?>
+
 
     <div class="containerRegister">
         <div class="card my-5 p-5 m-auto bg-gradient w-75 text-center" style="width: 20rem;">
@@ -47,7 +48,7 @@ require_once('./controller/controller.php');
 
         </div>
     </div>
-    <?php require('./views/footer.php') ?>
+    <?php require_once(__DIR__ . '/views/footer.php') ?>
 </body>
 
 </html>

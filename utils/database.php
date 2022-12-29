@@ -3,9 +3,9 @@
 namespace ETIROU\Cnx;
 
 
-require_once('../config/app.php');
+require_once(__DIR__ . '/../config/app.php');
 
-
+use Exception;
 use PDO, PDOException;
 
 
@@ -39,6 +39,29 @@ class Connexion
         $statement = $this->conx->prepare($request);
         $statement->execute($data);
     }
+
+    /**
+     * Retrieve informations, compare with password given, start session
+     */
+    public function login($pseudo, $password)
+    {
+
+        $request = "SELECT * FROM users WHERE (pseudo = :pseudo)";
+
+        $statement = $this->conx->prepare($request);
+        $statement->execute([
+            'pseudo' => $pseudo,
+        ]);
+
+        $datas = $statement->fetch(PDO::FETCH_ASSOC);
+
+        if (password_verify($password, $datas['password'])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
     public function questionRequest($fetchMethod = 'fetchAll')
     {

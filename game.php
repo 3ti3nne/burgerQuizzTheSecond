@@ -1,5 +1,9 @@
 <?php
-
+session_start();
+if (empty($_SESSION['pseudo'])) {
+    header('Location: index.php');
+    exit();
+}
 
 require_once('./config/app.php');
 require_once('./utils/database.php');

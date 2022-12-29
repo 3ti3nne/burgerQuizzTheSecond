@@ -4,13 +4,14 @@
 
 use ETIROU\Cnx\Connexion;
 
-require_once('../utils/database.php');
+
+require_once(__DIR__ . '/../utils/database.php');
 
 $conix = new Connexion($userAndDatabaseInformations);
 
 
 /**
- * Authentification
+ * Registration
  * 
  */
 if (isset($_POST['pseudo']) && !empty($_POST['password'])) {
@@ -22,6 +23,30 @@ if (isset($_POST['pseudo']) && !empty($_POST['password'])) {
 
     header('Location: ../index.php');
 }
+
+/**
+ * Authentification
+ */
+if (isset($_POST['loginPseudo']) && !empty($_POST['loginPassword'])) {
+
+
+    $pseudo = strtolower($_POST['loginPseudo']);
+    $password = $_POST['loginPassword'];
+
+    $isLoginSuccess = $conix->login($pseudo, $password);
+
+    if ($isLoginSuccess) {
+        session_start();
+        $_SESSION['pseudo'] = $pseudo;
+
+        header('Location: ../game.php');
+    } else {
+        header('Location: ../index.php');
+        $error = 'Identifiants incorrects';
+        exit();
+    }
+}
+
 
 
 
@@ -35,8 +60,6 @@ $answers = $conix->answerRequest();
  * Verify answers
  */
 if (isset($_POST) && !empty($_POST)) {
-
-    session_start();
 
     $userAnswers = $_POST;
     $countPoints = 0;
