@@ -3,7 +3,7 @@
 namespace ETIROU\Cnx;
 
 
-require_once('./userAndDatabaseInformationsig/app.php');
+require_once('../config/app.php');
 
 
 use PDO, PDOException;
@@ -28,14 +28,14 @@ class Connexion
     }
 
 
-    public function registerUser($name, $password)
+    public function registerUser($pseudo, $password)
     {
         $data = [
-            'name' => $name,
+            'pseudo' => $pseudo,
             'password' => $password,
         ];
 
-        $request = "INSERT INTO users(name, password)VALUES ( :name, :password)";
+        $request = "INSERT INTO users(pseudo, password)VALUES ( :pseudo, :password)";
         $statement = $this->conx->prepare($request);
         $statement->execute($data);
     }

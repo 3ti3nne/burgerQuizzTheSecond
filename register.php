@@ -28,15 +28,15 @@ require_once('./controller/controller.php');
 
     <div class="containerRegister">
         <div class="card my-5 p-5 m-auto bg-gradient w-75 text-center" style="width: 20rem;">
-            <form action="./controller/controller.php" method="POST">
+            <form action="controller/controller.php" method="POST">
                 <div class="form-group">
                     <label for="pseudo">Pseudo</label>
-                    <input type="text" class="form-control" id="pseudo" aria-describedby="pseudoHelp" placeholder="Choisir un pseudo" name="pseudo">
+                    <input type="text" class="form-control" id="pseudo" aria-describedby="pseudoHelp" placeholder="Choisir un pseudo" name="pseudo" required>
                     <small id="pseudoHelp" class="form-text text-muted">Trouvez un pseudo original!</small>
                 </div>
                 <div class="form-group">
                     <label for="password">Mot de passe</label>
-                    <input type="password" class="form-control" id="password" placeholder="Mot de passe" name="password">
+                    <input type="password" class="form-control" id="password" placeholder="Mot de passe" name="password" required>
                 </div>
                 <div class="form-group">
                     <label for="passwordCheck">Confirmer le mot de passe</label>
@@ -44,10 +44,6 @@ require_once('./controller/controller.php');
                 </div>
                 <button type="submit" class="btn btn-warning mt-5">S'inscrire</button>
             </form>
-
-            <?php
-            print_r($_POST);
-            ?>
 
         </div>
     </div>
