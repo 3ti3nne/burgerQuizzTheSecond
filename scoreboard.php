@@ -33,7 +33,7 @@ require_once('./utils/database.php');
     ?>
     <main>
 
-        <table class="table table-striped table-dark w-75 m-auto my-5">
+        <table class="table table-striped w-75 m-auto my-5 indexBG">
 
             <thead>
                 <tr>
@@ -52,7 +52,8 @@ require_once('./utils/database.php');
                     <tr>
                         <th scope="row"><?= $i ?></th>
                         <td><?= $score['pseudo'] ?></td>
-                        <td><?= $score['score'] ?></td>
+                        <td><?= (int)($score['score'] / 6 * 100) ?> %</td>
+
                     </tr>
                 <?php
                     $i++;
@@ -61,6 +62,8 @@ require_once('./utils/database.php');
 
             </tbody>
         </table>
+        <button class="list-group-item btn d-none"></button>
+
     </main>
 
 
@@ -74,6 +77,8 @@ require_once('./utils/database.php');
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="/public/js/scriptDark.js"></script>
+
 </body>
 
 </html>

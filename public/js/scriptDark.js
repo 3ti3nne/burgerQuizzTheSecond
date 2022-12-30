@@ -2,8 +2,6 @@
  * Dark mode
  */
 
-let darkMode = false;
-
 const nightBtn = document.querySelector("#night");
 const mainBG = document.querySelector(".indexBG");
 const footerBG = document.querySelector("#footerBG");
@@ -15,8 +13,11 @@ function dark() {
   mainBG.classList.add("bg-dark");
   footerBG.classList.add("bg-dark");
   gameBtn.style.color = "#ffc107";
-
-  darkMode = true;
+  nightBtn.innerHTML = "Light";
+  if (document.querySelector(".table")) {
+    document.querySelector(".table").classList.add("table-dark");
+  }
+  document.cookie = "darkMode=true; SameSite=None; Secure";
 }
 
 function light() {
@@ -25,8 +26,17 @@ function light() {
   document.body.classList.remove("bg-dark");
   mainBG.classList.remove("bg-dark");
   footerBG.classList.remove("bg-dark");
+  nightBtn.innerHTML = "Night";
+  if (document.querySelector(".table")) {
+    document.querySelector(".table").classList.remove("table-dark");
+  }
+  document.cookie = "darkMode=false; SameSite=None; Secure";
+}
 
-  darkMode = false;
+if (document.cookie.split(";").some((item) => item.includes("darkMode=true"))) {
+  dark();
+} else {
+  light();
 }
 
 nightBtn.addEventListener("click", () => {

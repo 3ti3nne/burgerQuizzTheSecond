@@ -27,7 +27,7 @@ require_once('./controller/controller.php');
 
 
 
-    <div class="row">
+    <div class="indexBG row">
 
         <div class="column-2 mb-r">
             <div class="card bg-dark bg-gradient text-white text-center p-1" id="scoreCard" style="margin:50px;">
@@ -53,6 +53,7 @@ require_once('./controller/controller.php');
                 <a href="./game.php" class="btn btn-outline-warning p-3 my-3 m-auto" id="reloadBtn">Rejouer ?</a>
             </div>
         </div>
+        <button class="list-group-item btn d-none"></button>
     </div>
 
 

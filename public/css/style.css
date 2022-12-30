@@ -3,6 +3,16 @@
   margin: 0 !important;
 }
 
+* {
+  transition-duration: 500ms;
+}
+
+#night {
+  position: fixed;
+  bottom: 50%;
+  left: 0;
+}
+
 @media only screen and (max-height: 400px) {
   #footerGame {
     position: relative !important;
