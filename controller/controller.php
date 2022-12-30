@@ -71,4 +71,5 @@ if (isset($_POST) && !empty($_POST)) {
             }
         }
     }
+    $conix->saveScore($countPoints, $_SESSION['pseudo']);
 }

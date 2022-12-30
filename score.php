@@ -62,6 +62,9 @@ require_once('./controller/controller.php');
         require('./views/footer.php')
         ?>
     </footer>
+
+    <script src="/public/js/scriptDark.js"></script>
+
 </body>
 
 </html>

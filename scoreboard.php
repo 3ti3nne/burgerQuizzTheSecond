@@ -4,6 +4,10 @@ if (empty($_SESSION['pseudo'])) {
     header('Location: index.php');
     exit();
 }
+
+require_once('./controller/controller.php');
+require_once('./utils/database.php');
+
 ?>
 
 <!DOCTYPE html>
@@ -27,6 +31,40 @@ if (empty($_SESSION['pseudo'])) {
     <?php
     require('./views/header.php')
     ?>
+    <main>
+
+        <table class="table table-striped table-dark w-75 m-auto my-5">
+
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Pseudo</th>
+                    <th scope="col">Score</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <?php
+                $scores = $conix->retrieveScores();
+                $i = 1;
+                foreach ($scores as $score) {
+                ?>
+                    <tr>
+                        <th scope="row"><?= $i ?></th>
+                        <td><?= $score['pseudo'] ?></td>
+                        <td><?= $score['score'] ?></td>
+                    </tr>
+                <?php
+                    $i++;
+                }
+                ?>
+
+            </tbody>
+        </table>
+    </main>
+
+
+
     <footer style="width:100%; bottom:0; position:relative; height:2.5rem;">
         <?php require('./views/footer.php') ?>
     </footer>

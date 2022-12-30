@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once(__DIR__ . '/controller/controller.php');
 ?>
 
@@ -29,7 +30,7 @@ require_once(__DIR__ . '/controller/controller.php');
     <main>
 
         <div class="card-body m-auto">
-            <div class="card m-auto p-3" id="indexBG">
+            <div class="indexBG card m-auto p-3" id="indexBG">
                 <a type="button" style="text-decoration: none ; color: black; cursor:pointer;" class="m-auto" <?php if (!empty($_SESSION['pseudo'])) {
                                                                                                                 ?> href="game.php" <?php
                                                                                                                                 } else {
@@ -87,7 +88,7 @@ require_once(__DIR__ . '/controller/controller.php');
         </footer>
 
 
-
+        <script src="/public/js/scriptDark.js"></script>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

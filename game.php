@@ -42,66 +42,68 @@ require_once('./controller/controller.php');
         $i = 0;
 
         ?>
-        <div class="container">
+        <div class="indexBG card-body m-auto">
+            <div class="container">
 
-            <form action="./score.php" method="post">
+                <form action="./score.php" method="post">
 
-                <?php
-                foreach ($questions as $question) {
-                ?>
+                    <?php
+                    foreach ($questions as $question) {
+                    ?>
 
-                    <!--            Display of questions and their associate answers from PHP SQL requests.        
+                        <!--            Display of questions and their associate answers from PHP SQL requests.        
                                 Id for display and hide.
  -->
-                    <div class="card mt-5 mb-5 m-auto text-bg-dark bg-gradient d-none w-75" id="parent<?= $indexQuestion ?>" style="width: 20rem;">
-                        <div id="gameCard" class="card-body">
-                            <h5 class="card-title"><?= $question['question'] ?></h5>
-                            <h6 class="card-subtitle mb-2 text-muted" style="color: #ffc107 !important;">La réponse : </h6>
-                            <p class="d-none"><?= $question['id'] ?></p>
-                            <ol class="list-group">
-                                <?php foreach ($answers as $answer) {
-                                    if ($answer['question_id'] === $question['id']) {
+                        <div class="card mt-5 mb-5 m-auto text-bg-dark bg-gradient d-none w-75" id="parent<?= $indexQuestion ?>" style="width: 20rem;">
+                            <div id="gameCard" class="card-body">
+                                <h5 class="card-title"><?= $question['question'] ?></h5>
+                                <h6 class="card-subtitle mb-2 text-muted" style="color: #ffc107 !important;">La réponse : </h6>
+                                <p class="d-none"><?= $question['id'] ?></p>
+                                <ol class="list-group">
+                                    <?php foreach ($answers as $answer) {
+                                        if ($answer['question_id'] === $question['id']) {
 
-                                ?>
-                                        <div class="form-group">
-                                            <label class="list-group-item btn btn-dark m-1" for="btn<?= $answer['id'] ?>"><?= "<strong>" . $letters[$i] . "</strong>" . " : " . $answer['answer'] ?></label>
-                                            <input class="d-none" type="radio" id="btn<?= $answer['id'] ?>" value="<?= $answer['id'] ?>" name="<?= $answer['id'] ?>">
-                                        </div>
-                                <?php
-                                        $i++;
-                                    };
-                                }
-                                $i = 0;
+                                    ?>
+                                            <div class="form-group">
+                                                <label class="list-group-item btn btn-dark m-1" for="btn<?= $answer['id'] ?>"><?= "<strong>" . $letters[$i] . "</strong>" . " : " . $answer['answer'] ?></label>
+                                                <input class="d-none" type="radio" id="btn<?= $answer['id'] ?>" value="<?= $answer['id'] ?>" name="<?= $answer['id'] ?>">
+                                            </div>
+                                    <?php
+                                            $i++;
+                                        };
+                                    }
+                                    $i = 0;
 
-                                ?>
-                            </ol>
+                                    ?>
+                                </ol>
+                            </div>
                         </div>
-                    </div>
 
 
-                <?php
-                    //      Adding for display's identification in JS.
-                    $indexQuestion++;
-                }
-                ?>
-                <!--        Last insertion after the final question, asking for user's name.
+                    <?php
+                        //      Adding for display's identification in JS.
+                        $indexQuestion++;
+                    }
+                    ?>
+                    <!--        Last insertion after the final question, asking for user's name.
  -->
-                <div class="alert alert-warning alert-dismissible d-none m-auto text-center mt-5 " id="parent<?= $indexQuestion ?>" role="alert">
-                    <strong>Un commentaire ?</strong>
-                    <div class="form-group p-4">
-                        <textarea id="story" name="story" rows="5" cols="33"></textarea>
+                    <div class="alert alert-warning alert-dismissible d-none m-auto text-center mt-5 " id="parent<?= $indexQuestion ?>" role="alert">
+                        <strong>Un commentaire ?</strong>
+                        <div class="form-group p-4">
+                            <textarea id="story" name="story" rows="5" cols="33"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-dark row mt-4 p-1" data-dismiss="alert">Envoyer
+                        </button>
                     </div>
-                    <button type="submit" class="btn btn-dark row mt-4 p-1" data-dismiss="alert">Envoyer
-                    </button>
-                </div>
 
 
-            </form>
+                </form>
+            </div>
         </div>
     </main>
 
 
-    <footer id="footerGame" style="width:100%; bottom:0; position:absolute; height:2.5rem;">
+    <footer id="footerGame" style="width:100%; bottom:0; position:relative; height:2.5rem;">
         <?php
         require('./views/footer.php')
         ?>
@@ -109,6 +111,8 @@ require_once('./controller/controller.php');
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <script src="./public/js/script.js"></script>
+    <script src="/public/js/scriptDark.js"></script>
+
 </body>
 
 </html>
