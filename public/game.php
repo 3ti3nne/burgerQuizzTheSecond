@@ -5,9 +5,9 @@ if (empty($_SESSION['pseudo'])) {
     exit();
 }
 
-require_once('./config/app.php');
-require_once('./utils/database.php');
-require_once('./controller/controller.php');
+require_once('../config/app.php');
+require_once('../utils/database.php');
+require_once('../controller/controller.php');
 
 ?>
 
@@ -18,7 +18,7 @@ require_once('./controller/controller.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./public/css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap" rel="stylesheet">
@@ -28,7 +28,7 @@ require_once('./controller/controller.php');
 
 <body>
 
-    <?php require('./views/header.php') ?>
+    <?php require('../views/header.php') ?>
 
 
 
@@ -105,13 +105,13 @@ require_once('./controller/controller.php');
 
     <footer id="footerGame" style="width:100%; bottom:0; position:relative; height:2.5rem;">
         <?php
-        require('./views/footer.php')
+        require('../views/footer.php')
         ?>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-    <script src="./public/js/script.js"></script>
-    <script src="/public/js/scriptDark.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/scriptDark.js"></script>
 
 </body>
 

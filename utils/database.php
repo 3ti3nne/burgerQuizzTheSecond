@@ -27,17 +27,18 @@ class Connexion
         }
     }
 
-
+    /**
+     * Secure insertion with bindParam
+     * 
+     */
     public function registerUser($pseudo, $password)
     {
-        $data = [
-            'pseudo' => $pseudo,
-            'password' => $password,
-        ];
 
         $request = "INSERT INTO users(pseudo, password)VALUES ( :pseudo, :password)";
         $statement = $this->conx->prepare($request);
-        $statement->execute($data);
+        $statement->bindParam(':pseudo', $pseudo, PDO::PARAM_STR, 30);
+        $statement->bindParam(':password', $password, PDO::PARAM_STR, 100);
+        $statement->execute();
     }
 
     /**
@@ -64,6 +65,9 @@ class Connexion
     }
 
 
+    /**
+     * Save user's score
+     */
     public function saveScore($score, $pseudo)
     {
         $request = "SELECT id FROM users WHERE (pseudo = :pseudo)";
@@ -73,16 +77,13 @@ class Connexion
             'pseudo' => $pseudo,
         ]);
 
-        $user_id = $statement->fetch();
-
-        $data = [
-            'user_id' => $user_id['id'],
-            'score' => $score,
-        ];
+        $user_id = $statement->fetch(PDO::FETCH_ASSOC);
 
         $request = "INSERT INTO scores(user_id, score)VALUES ( :user_id, :score)";
         $statement = $this->conx->prepare($request);
-        $statement->execute($data);
+        $statement->bindParam(':user_id', $user_id['id'], PDO::PARAM_INT);
+        $statement->bindParam(':score', $score, PDO::PARAM_INT);
+        $statement->execute();
     }
 
 

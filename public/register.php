@@ -1,9 +1,9 @@
 <?php
 
 
-require_once(__DIR__ . '/config/app.php');
-require_once(__DIR__ . '/utils/database.php');
-require_once(__DIR__ . '/controller/controller.php');
+require_once(__DIR__ . '../config/app.php');
+require_once(__DIR__ . '../utils/database.php');
+require_once(__DIR__ . '../controller/controller.php');
 
 ?>
 
@@ -14,7 +14,7 @@ require_once(__DIR__ . '/controller/controller.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./public/css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap" rel="stylesheet">
@@ -24,7 +24,7 @@ require_once(__DIR__ . '/controller/controller.php');
 
 <body>
 
-    <?php require_once(__DIR__ . '/views/header.php') ?>
+    <?php require_once(__DIR__ . '../views/header.php') ?>
 
 
     <div class="containerRegister">

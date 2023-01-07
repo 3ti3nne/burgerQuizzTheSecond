@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('./controller/controller.php');
+require_once('../controller/controller.php');
 
 
 ?>
@@ -11,7 +11,7 @@ require_once('./controller/controller.php');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./public/css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap" rel="stylesheet">
@@ -23,7 +23,7 @@ require_once('./controller/controller.php');
 
     <!-- RAJOUTER UNE MODALE AVEC LES SCORES ENREGISTRES
  -->
-    <?php require('./views/header.php') ?>
+    <?php require('../views/header.php') ?>
 
 
 
@@ -48,7 +48,7 @@ require_once('./controller/controller.php');
                     <?php
                     }
                     ?>
-                    <img src="./public/imgs/chabatBG.jpg" class="mx-2" id="chabat" alt="chabat" style="height: 500px ; border-radius: 10px;">
+                    <img src="./imgs/chabatBG.jpg" class="mx-2" id="chabat" alt="chabat" style="height: 500px ; border-radius: 10px;">
                 </div>
                 <a href="./game.php" class="btn btn-outline-warning p-3 my-3 m-auto" id="reloadBtn">Rejouer ?</a>
             </div>
@@ -60,11 +60,11 @@ require_once('./controller/controller.php');
 
     <footer style="width:100%; bottom:0; position:relative; height:2.5rem;">
         <?php
-        require('./views/footer.php')
+        require('../views/footer.php')
         ?>
     </footer>
 
-    <script src="/public/js/scriptDark.js"></script>
+    <script src="./js/scriptDark.js"></script>
 
 </body>
 

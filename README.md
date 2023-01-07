@@ -1,5 +1,5 @@
 # Manual
 
-### 1: Load database in the utils folder using PHPmyAdmin or a similar platform.
+### 1: Use database in the utils folder using PHPmyAdmin or a similar platform.
 
-#### Don't use it with 'root', check out the app.php file in the config folder.
+### 2: Check out the app.php file in the config folder for authentification to database.

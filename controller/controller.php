@@ -21,7 +21,7 @@ if (isset($_POST['pseudo']) && !empty($_POST['password'])) {
 
     $conix->registerUser($pseudo, $password);
 
-    header('Location: ../index.php');
+    header('Location: ../public/index.php');
 }
 
 /**
@@ -39,9 +39,9 @@ if (isset($_POST['loginPseudo']) && !empty($_POST['loginPassword'])) {
         session_start();
         $_SESSION['pseudo'] = $pseudo;
 
-        header('Location: ../game.php');
+        header('Location: ../public/game.php');
     } else {
-        header('Location: ../index.php');
+        header('Location: ../public/index.php');
         $error = 'Identifiants incorrects';
         exit();
     }

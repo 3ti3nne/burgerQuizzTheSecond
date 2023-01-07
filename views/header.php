@@ -1,7 +1,7 @@
 <nav class="navbar bg-dark bg-gradient border-dark">
     <div class="container-fluid">
         <button type="button" id="night" class="btn btn-warning">Night</button>
-        <a class="navbar-brand" href="/index.php">
+        <a class="navbar-brand" href="./../index.php">
             <img id="img" src="../public/imgs/Burger_Quiz_logo_ecrit.png" width="300" height="100" class="d-inline-block align-text-top">
         </a>
         <?php if (isset($_SESSION['pseudo']) && !empty($_SESSION['pseudo'])) {
